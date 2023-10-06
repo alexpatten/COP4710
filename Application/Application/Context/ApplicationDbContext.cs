@@ -1,15 +1,15 @@
 ﻿using Application.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Context
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext : DbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
 
-        }
-
-        public DbSet<Patient> Patients { get; set; }
     }
+
+    public DbSet<Doctors> Doctors { get; set; }
+    public DbSet<Patients> Patients { get; set; }
+    public DbSet<Doctors_User> DoctorsUsers { get; set; }
+    public DbSet<Patients_User> PatientsUsers { get; set; }
 }

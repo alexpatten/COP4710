@@ -1,8 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Index</h1>
+
+<div>
+    <button type="button" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+    <button type="button" onclick="location.href='@Url.Action("Register", "Account")'">Register</button>
 </div>
