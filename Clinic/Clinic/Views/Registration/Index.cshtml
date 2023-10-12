@@ -1,7 +1,7 @@
 ﻿@model Clinic.Models.RegistrationModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -10,45 +10,26 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    <style>
-        .form-group {
-            padding: 5px;
-        }
-
-        .custom-button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s; /* Add a smooth transition effect */
-        }
-
-        /* Style for the button when clicked */
-        .custom-button:active {
-            background-color: #0056b3; /* Change the background color while clicked */
-        }
-
-        .control-label::before {
-            content: " *";
-            color: red;
-        }
-    </style>
-
+    <link href="~/Content/Registration.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     @using (Html.BeginForm("Registration", "Registration", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.SelectedUserType)
-        <div class="form-group">
-            <label>User Type:</label><br />
-
-                <input type="radio" id="doctorRadio" name="SelectedUserType" value="Doctor" /> Doctor
-
-                <input type="radio" id="patientRadio" name="SelectedUserType" value="Patient" /> Patient
+        <br>
+        <label class="bold-label">User type:</label><br><br>
+        <div class="check-group">
+            <input type="radio" id="doctorRadio" name="SelectedUserType" value="Doctor">
+            <label for="doctorRadio">
+                <div class="custom-radio"></div>
+                Doctor
+            </label>
+            <input type="radio" id="patientRadio" name="SelectedUserType" value="Patient">
+            <label for="patientRadio">
+                <div class="custom-radio"></div>
+                Patient
+            </label>
         </div>
 
         <div class="doctor-form">
