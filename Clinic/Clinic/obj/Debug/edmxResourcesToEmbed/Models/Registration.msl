@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClinicModelStoreContainer" CdmEntityContainer="ClinicEntities">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="ClinicModel.Appointment">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="ClinicModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+          <ScalarProperty Name="PatientAgeGroup" ColumnName="PatientAgeGroup" />
+          <ScalarProperty Name="DoctorAppointment" ColumnName="DoctorAppointment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="ClinicModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="InsuranceProvider" ColumnName="InsuranceProvider" />
+          <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+          <ScalarProperty Name="PatientAppointment" ColumnName="PatientAppointment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

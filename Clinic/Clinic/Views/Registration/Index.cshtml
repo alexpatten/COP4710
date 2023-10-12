@@ -1,0 +1,277 @@
+﻿@model Clinic.Models.RegistrationModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .form-group {
+            padding: 5px;
+        }
+
+        .custom-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Add a smooth transition effect */
+        }
+
+        /* Style for the button when clicked */
+        .custom-button:active {
+            background-color: #0056b3; /* Change the background color while clicked */
+        }
+
+        .control-label::before {
+            content: " *";
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm("Registration", "Registration", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.SelectedUserType)
+        <div class="form-group">
+            <label>User Type:</label><br />
+
+                <input type="radio" id="doctorRadio" name="SelectedUserType" value="Doctor" /> Doctor
+
+                <input type="radio" id="patientRadio" name="SelectedUserType" value="Patient" /> Patient
+        </div>
+
+        <div class="doctor-form">
+            <h4>Doctor</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First name" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last name" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone number" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.Specialization, new { htmlAttributes = new { @class = "form-control", placeholder = "Specialization" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.Specialization, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Doctor.PatientAgeGroup, new { htmlAttributes = new { @class = "form-control", placeholder = "Patient age group" } })
+                    @Html.ValidationMessageFor(model => model.Doctor.PatientAgeGroup, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="patient-form">
+            <h4>Patient</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First name" } })
+                    @Html.ValidationMessageFor(model => model.Patient.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.MiddleName, new { htmlAttributes = new { @class = "form-control", placeholder = "Middle name" } })
+                    @Html.ValidationMessageFor(model => model.Patient.MiddleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last name" } })
+                    @Html.ValidationMessageFor(model => model.Patient.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone number" } })
+                    @Html.ValidationMessageFor(model => model.Patient.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Address" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.DOB, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Date of birth" } })
+                    @Html.ValidationMessageFor(model => model.Patient.DOB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Gender, new { htmlAttributes = new { @class = "form-control", placeholder = "Gender" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.Allergies, new { htmlAttributes = new { @class = "form-control", placeholder = "Allergies" } })
+                    @Html.ValidationMessageFor(model => model.Patient.Allergies, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Patient.InsuranceProvider, new { htmlAttributes = new { @class = "form-control", placeholder = "Insurance provider" } })
+                    @Html.ValidationMessageFor(model => model.Patient.InsuranceProvider, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="custom-button">Register</button>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        // Function to show the doctor form and hide the patient form
+        function showPatientForm() {
+            $(".doctor-form").hide();
+            $(".patient-form").show();
+            $("input[name='SelectedUserType'][value='Patient']").prop('checked', true);
+
+            // Set input fields within patient-form as required
+            $(".patient-form input[type='text']").prop('required', true);
+
+            // Remove required from input fields in doctor-form
+            $(".doctor-form input[type='text']").prop('required', false);
+        }
+
+        // Function to show the patient form and hide the doctor form
+        function showDoctorForm() {
+            $(".doctor-form").show();
+            $(".patient-form").hide();
+            $("input[name='SelectedUserType'][value='Doctor']").prop('checked', true);
+
+            // Set input fields within doctor-form as required
+            $(".doctor-form input[type='text']").prop('required', true);
+
+            // Remove required from input fields in patient-form
+            $(".patient-form input[type='text']").prop('required', false);
+        }
+
+        $(document).ready(function () {
+            // Check Patient radio if SelectedUserType is null or "Patient"
+            if (SelectedUserType === "Patient") {
+                showPatientForm();
+            } else {
+                showDoctorForm();
+            }
+        });
+
+        // Handle radio button changes
+        $("input[name='SelectedUserType']").change(function () {
+            // Update the hidden field value based on the selected radio button
+            $("#SelectedUserType").val($("input[name='SelectedUserType']:checked").val());
+
+            // Check the value of the selected radio button and call the appropriate function
+            if ($("input[name='SelectedUserType']:checked").val() === 'Patient') {
+                showPatientForm();
+            } else {
+                showDoctorForm();
+            }
+        });
+
+        $(document).ready(function () {
+            // Apply the datepicker to input elements with the 'datepicker' class
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd", // You can change the date format as needed
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2050" // Set the desired year range
+            });
+        });
+    </script>
+</body>
+</html>
