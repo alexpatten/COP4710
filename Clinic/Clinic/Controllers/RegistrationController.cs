@@ -28,9 +28,13 @@ namespace Clinic.Controllers
                     {
                         ModelState.AddModelError("Doctor.Username", "Username is already taken.");
                     }
-                    else if (db.Doctors.Any(d => d.Password == model.Doctor.Password))
+                    else if (db.Doctors.Any(d => d.Email == model.Doctor.Email))
                     {
                         ModelState.AddModelError("Doctor.Email", "Email is already in use.");
+                    }
+                    else if (!model.Doctor.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Invalid email address.");
                     }
                     else
                     {
@@ -45,9 +49,13 @@ namespace Clinic.Controllers
                         ModelState.AddModelError("Patients.Username", "Username is already taken.");
                         return View();
                     }
-                    else if (db.Patients.Any(d => d.Password == model.Patient.Password))
+                    else if (db.Patients.Any(d => d.Email == model.Patient.Email))
                     {
                         ModelState.AddModelError("Patients.Email", "Email is already in use.");
+                    }
+                    else if (!model.Patient.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Patient.Email", "Invalid email address.");
                     }
                     else
                     {
@@ -61,9 +69,13 @@ namespace Clinic.Controllers
                     {
                         ModelState.AddModelError("Doctor.Username", "Username is already taken.");
                     }
-                    else if (db.Doctors.Any(d => d.Password == model.Doctor.Password))
+                    else if (db.Doctors.Any(d => d.Email == model.Doctor.Email))
                     {
                         ModelState.AddModelError("Doctor.Email", "Email is already in use.");
+                    }
+                    else if (!model.Doctor.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Invalid email address.");
                     }
                     else
                     {

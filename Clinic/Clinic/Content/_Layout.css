@@ -1,14 +1,16 @@
-﻿/* Remove margin and padding on body and html elements */
-html, body {
-    margin: 0;
-    padding: 0;
+﻿html {
+    font-family: sans-serif;
+    margin-left: 10px;
 }
 
-/* Add a black background color to the top navigation */
+/* Top navbar */
 .topnav {
-    margin-left: -10px;
-    background-color: #333;
+    margin-top: -10px; /* Move up */
+    margin-left: -20px; /* Move left */
+    background-color: #8080FF; /* Color */
+    border: 1px solid #B780FF;
     overflow: hidden;
+    width: 110%;
 }
 
 /* Style the links inside the navigation bar */
