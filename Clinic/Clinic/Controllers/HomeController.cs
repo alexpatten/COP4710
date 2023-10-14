@@ -26,9 +26,9 @@ namespace Clinic.Controllers
                     var obj = db.Patients.Where(a => a.Username.Equals(objUser.Patient.Username) && a.Password.Equals(objUser.Patient.Password)).FirstOrDefault();
                     if (obj != null)
                     {
-                        Session["UserID"] = obj.UserId.ToString();
-                        Session["UserName"] = obj.UserName.ToString();
-                        return RedirectToAction("UserDashBoard");
+                        //Session["UserID"] = obj.UserId.ToString();
+                        //Session["UserName"] = obj.UserName.ToString();
+                        //return RedirectToAction("UserDashBoard");
                     }
                 }
             }
