@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Registration.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Registration.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -108,6 +109,7 @@
       <DependentUpon>Registration.edmx</DependentUpon>
       <LastGenOutput>Registration.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\_Layout.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +158,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Registration\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

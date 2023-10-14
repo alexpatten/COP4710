@@ -1,6 +1,7 @@
 ﻿using Clinic.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,19 +20,68 @@ namespace Clinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.SelectedUserType == "Doctor")
+                ClinicEntities db = new ClinicEntities();
+
+                if (model.SelectedUserType == "Doctor") // Process Doctor registration
                 {
-                    // Process Doctor registration
-                    ClinicEntities db = new ClinicEntities();
-                    db.Doctors.Add(model.Doctor);
-                    db.SaveChanges();
+                    if (db.Doctors.Any(d => d.Username == model.Doctor.Username))
+                    {
+                        ModelState.AddModelError("Doctor.Username", "Username is already taken.");
+                    }
+                    else if (db.Doctors.Any(d => d.Email == model.Doctor.Email))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Email is already in use.");
+                    }
+                    else if (!model.Doctor.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Invalid email address.");
+                    }
+                    else
+                    {
+                        db.Doctors.Add(model.Doctor);
+                        db.SaveChanges();
+                    }
                 }
-                else if (model.SelectedUserType == "Patient")
+                else if (model.SelectedUserType == "Patient") // Process Patient registration
                 {
-                    // Process Patient registration
-                    ClinicEntities db = new ClinicEntities();
-                    db.Patients.Add(model.Patient);
-                    db.SaveChanges();
+                    if (db.Patients.Any(d => d.Username == model.Patient.Username))
+                    {
+                        ModelState.AddModelError("Patients.Username", "Username is already taken.");
+                        return View();
+                    }
+                    else if (db.Patients.Any(d => d.Email == model.Patient.Email))
+                    {
+                        ModelState.AddModelError("Patients.Email", "Email is already in use.");
+                    }
+                    else if (!model.Patient.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Patient.Email", "Invalid email address.");
+                    }
+                    else
+                    {
+                        db.Patients.Add(model.Patient);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    if (db.Doctors.Any(d => d.Username == model.Doctor.Username))
+                    {
+                        ModelState.AddModelError("Doctor.Username", "Username is already taken.");
+                    }
+                    else if (db.Doctors.Any(d => d.Email == model.Doctor.Email))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Email is already in use.");
+                    }
+                    else if (!model.Doctor.Email.Contains("@"))
+                    {
+                        ModelState.AddModelError("Doctor.Email", "Invalid email address.");
+                    }
+                    else
+                    {
+                        db.Doctors.Add(model.Doctor);
+                        db.SaveChanges();
+                    }
                 }
             }
 

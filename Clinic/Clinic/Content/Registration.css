@@ -1,0 +1,132 @@
+﻿.form-group {
+    margin-bottom: 15px;
+}
+
+.signupBtn {
+    width: 120px;
+    height: 40px;
+    margin-left: 130px;
+    border-radius: 30px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    gap: 9px;
+    color: white;
+    background: linear-gradient(to right,rgb(128, 128, 255),rgb(183, 128, 255));
+    position: relative;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.212);
+}
+
+.arrow {
+    position: absolute;
+    right: 7.5px;
+    background-color: rgb(255, 255, 255);
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.signupBtn:hover .arrow {
+    animation: slide-in-left 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #8080FF;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 20%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Style for the button when clicked */
+.custom-button:active {
+    background-color: #0056b3; /* Change the background color while clicked */
+}
+
+/* Style for the radio container (check-group) */
+.check-group {
+    display: flex;
+    flex-direction: column; /* Change the direction to column */
+}
+
+/* Hide the default radio button */
+.check-group input[type="radio"] {
+    display: none;
+}
+
+/* Style for the custom radio button */
+.custom-radio {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #8080FF;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Style for the custom radio button when selected */
+.custom-radio.checked {
+    background-color: #8080FF;
+}
+
+/* Style for the label text */
+.check-group label {
+    font-size: 16px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Set font-weight to bold for the label */
+.bold-label {
+    font-weight: bold;
+}
+
+/* Visually hide the radio button input and style the custom radio button */
+.check-group input[type="radio"] + label .custom-radio::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    transition: background-color 0.3s;
+    opacity: 0;
+}
+
+/* Style the custom radio button when selected */
+.check-group input[type="radio"]:checked + label .custom-radio::before {
+    background-color: #8080FF;
+    opacity: 1;
+}
