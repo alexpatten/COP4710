@@ -1,0 +1,23 @@
+﻿.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #8080FF;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 20%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Style for the button when clicked */
+.custom-button:active {
+    background-color: #0056b3; /* Change the background color while clicked */
+}

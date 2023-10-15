@@ -12,12 +12,14 @@ namespace Clinic.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Diagnostics;
+
     public partial class ClinicEntities : DbContext
     {
         public ClinicEntities()
             : base("name=ClinicEntities")
         {
+            Database.Log = sql => Debug.Write(sql);
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

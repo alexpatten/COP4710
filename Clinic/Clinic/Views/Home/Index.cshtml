@@ -1,4 +1,5 @@
-﻿
+﻿@model Clinic.Models.RegistrationModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,13 +7,29 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-</head>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Home</title>
+        <link href="~/Content/Registration.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
 <body>
-    <div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+        <div class="col-md-10">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
     </div>
+
+
+    <button type="submit" class="signupBtn">Login</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        
+    </script>
 </body>
 </html>

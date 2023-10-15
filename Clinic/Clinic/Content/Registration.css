@@ -1,8 +1,4 @@
-﻿.form-group {
-    margin-bottom: 15px;
-}
-
-.signupBtn {
+﻿.signupBtn {
     width: 120px;
     height: 40px;
     margin-left: 130px;
@@ -48,6 +44,10 @@
     }
 }
 
+.form-group {
+    margin-bottom: 15px;
+}
+
 .form-control {
     padding: 10px;
     border: 1px solid #8080FF;
@@ -58,10 +58,10 @@
     transition: border-color 0.3s;
 }
 
-.form-control:focus {
-    border-color: #007BFF;
-    outline: none;
-}
+    .form-control:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
 
 /* Style for the button when clicked */
 .custom-button:active {
@@ -74,10 +74,10 @@
     flex-direction: column; /* Change the direction to column */
 }
 
-/* Hide the default radio button */
-.check-group input[type="radio"] {
-    display: none;
-}
+    /* Hide the default radio button */
+    .check-group input[type="radio"] {
+        display: none;
+    }
 
 /* Style for the custom radio button */
 .custom-radio {
@@ -92,10 +92,10 @@
     cursor: pointer;
 }
 
-/* Style for the custom radio button when selected */
-.custom-radio.checked {
-    background-color: #8080FF;
-}
+    /* Style for the custom radio button when selected */
+    .custom-radio.checked {
+        background-color: #8080FF;
+    }
 
 /* Style for the label text */
 .check-group label {
