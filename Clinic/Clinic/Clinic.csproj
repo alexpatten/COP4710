@@ -100,6 +100,7 @@
     <Content Include="Content\Registration.css" />
     <Content Include="Content\_Home.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\CLINIC.png" />
     <Content Include="Models\Registration.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Registration.Context.cs</LastGenOutput>
