@@ -17,22 +17,41 @@ namespace Clinic.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(RegistrationModel objUser)
+        [Authorize(Roles = "Doctor, Patient")]
+        public ActionResult Login(RegistrationModel model)
         {
             if (ModelState.IsValid)
             {
                 using (ClinicEntities db = new ClinicEntities())
                 {
-                    var obj = db.Patients.Where(a => a.Username.Equals(objUser.Patient.Username) && a.Password.Equals(objUser.Patient.Password)).FirstOrDefault();
-                    if (obj != null)
+                    // First, check if the entered username and password match a doctor's account
+                    var doctor = db.Doctors.FirstOrDefault(a => a.Username.Equals(model.Username) && a.Password.Equals(model.Password));
+
+                    // If no doctor is found, check if the entered username and password match a patient's account
+                    var patient = db.Patients.FirstOrDefault(a => a.Username.Equals(model.Username) && a.Password.Equals(model.Password));
+
+                    if (doctor != null)
                     {
-                        //Session["UserID"] = obj.UserId.ToString();
-                        //Session["UserName"] = obj.UserName.ToString();
-                        //return RedirectToAction("UserDashBoard");
+                        // Doctor login logic
+                        Session["DoctorID"] = doctor.DoctorID.ToString();
+                        Session["Username"] = doctor.Username;
+                        return RedirectToAction("Create", "Appointment");
+                    }
+                    else if (patient != null)
+                    {
+                        // Patient login logic
+                        Session["PatientID"] = patient.PatientID.ToString();
+                        Session["Username"] = patient.Username;
+                        return RedirectToAction("Create", "Appointment");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("RegistrationModel.Username", "Invalid username or password.");
+                        return RedirectToAction("Index");
                     }
                 }
             }
-            return View(objUser);
+            return View("Index");
         }
 
         public ActionResult UserDashBoard()

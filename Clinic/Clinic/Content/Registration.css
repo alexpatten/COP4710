@@ -1,8 +1,4 @@
-﻿.form-group {
-    margin-bottom: 15px;
-}
-
-.signupBtn {
+﻿.signupBtn {
     width: 120px;
     height: 40px;
     margin-left: 130px;
@@ -46,6 +42,10 @@
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 .form-control {

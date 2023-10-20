@@ -1,4 +1,5 @@
-﻿
+﻿@model Clinic.Models.RegistrationModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,13 +7,36 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-</head>
-<body>
-    <div>
-    </div>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Home</title>
+        <link href="~/Content/_Home.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body>
+        <main>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+            <div class="cred-container">
+                <img id="clinicImg" src="~/Images/CLINIC.png" alt="Clinic Image">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-group", placeholder = "Username", required = "required" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-group", placeholder = "Password", required = "required" } })
+                <button type="submit" class="signupBtn form-group">Login</button>
+            </div>
+            }
+
+        </main>
+        <footer>
+
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+
+        </script>
+    </body>
 </html>

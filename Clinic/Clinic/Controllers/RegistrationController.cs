@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
 
@@ -46,12 +47,11 @@ namespace Clinic.Controllers
                 {
                     if (db.Patients.Any(d => d.Username == model.Patient.Username))
                     {
-                        ModelState.AddModelError("Patients.Username", "Username is already taken.");
-                        return View();
+                        ModelState.AddModelError("Patient.Username", "Username is already taken.");
                     }
                     else if (db.Patients.Any(d => d.Email == model.Patient.Email))
                     {
-                        ModelState.AddModelError("Patients.Email", "Email is already in use.");
+                        ModelState.AddModelError("Patient.Email", "Email is already in use.");
                     }
                     else if (!model.Patient.Email.Contains("@"))
                     {
