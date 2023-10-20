@@ -15,7 +15,7 @@ public class AppointmentController : Controller
     }
 
     // GET: /Appointment/Create
-    [Authorize(Roles = "Doctor, Patient")]
+    //[Authorize(Roles = "Doctor, Patient")]
     public ActionResult Create()
     {
         // Add the logic for the Create action here

@@ -1,0 +1,37 @@
+LOGIN QUERIES:
+
+Check if username/password exists in Doctor table:
+	exec sp_executesql N'SELECT TOP (1) 
+    [Extent1].[DoctorID] AS [DoctorID], 
+    [Extent1].[FirstName] AS [FirstName], 
+    [Extent1].[LastName] AS [LastName], 
+    [Extent1].[FullName] AS [FullName], 
+    [Extent1].[PhoneNumber] AS [PhoneNumber], 
+    [Extent1].[Email] AS [Email], 
+    [Extent1].[Username] AS [Username], 
+    [Extent1].[Password] AS [Password], 
+    [Extent1].[Specialization] AS [Specialization], 
+    [Extent1].[PatientAgeGroup] AS [PatientAgeGroup], 
+    [Extent1].[DoctorAppointment] AS [DoctorAppointment]
+    FROM [dbo].[Doctors] AS [Extent1]
+    WHERE (([Extent1].[Username] = @p__linq__0) OR (([Extent1].[Username] IS NULL) AND (@p__linq__0 IS NULL))) AND (([Extent1].[Password] = @p__linq__1) OR (([Extent1].[Password] IS NULL) AND (@p__linq__1 IS NULL)))',N'@p__linq__0 nvarchar(4000),@p__linq__1 nvarchar(4000)',@p__linq__0=N'apatten',@p__linq__1=N'password'
+	
+Check if username/password exists in Patient table:
+	exec sp_executesql N'SELECT TOP (1) 
+    [Extent1].[PatientID] AS [PatientID], 
+    [Extent1].[DOB] AS [DOB], 
+    [Extent1].[Gender] AS [Gender], 
+    [Extent1].[Address] AS [Address], 
+    [Extent1].[FirstName] AS [FirstName], 
+    [Extent1].[MiddleName] AS [MiddleName], 
+    [Extent1].[LastName] AS [LastName], 
+    [Extent1].[FullName] AS [FullName], 
+    [Extent1].[Email] AS [Email], 
+    [Extent1].[PhoneNumber] AS [PhoneNumber], 
+    [Extent1].[Username] AS [Username], 
+    [Extent1].[Password] AS [Password], 
+    [Extent1].[InsuranceProvider] AS [InsuranceProvider], 
+    [Extent1].[Allergies] AS [Allergies], 
+    [Extent1].[PatientAppointment] AS [PatientAppointment]
+    FROM [dbo].[Patients] AS [Extent1]
+    WHERE (([Extent1].[Username] = @p__linq__0) OR (([Extent1].[Username] IS NULL) AND (@p__linq__0 IS NULL))) AND (([Extent1].[Password] = @p__linq__1) OR (([Extent1].[Password] IS NULL) AND (@p__linq__1 IS NULL)))',N'@p__linq__0 nvarchar(4000),@p__linq__1 nvarchar(4000)',@p__linq__0=N'apatten',@p__linq__1=N'password'
