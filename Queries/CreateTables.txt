@@ -1,0 +1,45 @@
+-- Create Doctors table
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY IDENTITY(1,1),
+    FirstName NVARCHAR(255),
+    LastName NVARCHAR(255),
+    FullName AS (FirstName + ' ' + LastName),
+    PhoneNumber CHAR(10),
+    Email NVARCHAR(255),
+    Username NVARCHAR(255),
+    Password NVARCHAR(255),
+    Specialization NVARCHAR(255),
+    PatientAgeGroup NVARCHAR(255),
+    DoctorAppointment INT -- Foreign key to Appointments table
+);
+
+-- Create Patients table
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY IDENTITY(1,1),
+    DOB DATE,
+    Gender NVARCHAR(255),
+    Address NVARCHAR(255),
+    FirstName NVARCHAR(255),
+    MiddleName NVARCHAR(255),
+    LastName NVARCHAR(255),
+    FullName AS (FirstName + ' ' + MiddleName + ' ' + LastName),
+    Email NVARCHAR(255),
+    PhoneNumber CHAR(10),
+    Username NVARCHAR(255),
+    Password NVARCHAR(255),
+    InsuranceProvider NVARCHAR(255),
+    Allergies NVARCHAR(255),
+    PatientAppointment INT -- Foreign key to Appointments table
+);
+
+-- Create Appointments table
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY,
+    PatientID INT,
+    DoctorID INT,
+    [Date] DATE,
+    [Time] TIME,
+    Room NVARCHAR(255),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);

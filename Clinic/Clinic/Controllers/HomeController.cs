@@ -17,7 +17,6 @@ namespace Clinic.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Doctor, Patient")]
         public ActionResult Login(RegistrationModel model)
         {
             if (ModelState.IsValid)
