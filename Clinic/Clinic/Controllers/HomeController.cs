@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Clinic.Controllers
 {
@@ -31,17 +32,19 @@ namespace Clinic.Controllers
 
                     if (doctor != null)
                     {
+                        FormsAuthentication.SetAuthCookie(model.Username, false); // Authenticate the user
                         // Doctor login logic
                         Session["DoctorID"] = doctor.DoctorID.ToString();
                         Session["Username"] = doctor.Username;
-                        return RedirectToAction("Create", "Appointment");
+                        return RedirectToAction("Appointment", "Appointment");
                     }
                     else if (patient != null)
                     {
+                        FormsAuthentication.SetAuthCookie(model.Username, false); // Authenticate the user
                         // Patient login logic
                         Session["PatientID"] = patient.PatientID.ToString();
                         Session["Username"] = patient.Username;
-                        return RedirectToAction("Create", "Appointment");
+                        return RedirectToAction("Appointment", "Appointment");
                     }
                     else
                     {
@@ -51,18 +54,6 @@ namespace Clinic.Controllers
                 }
             }
             return View("Index");
-        }
-
-        public ActionResult UserDashBoard()
-        {
-            if (Session["UserID"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
         }
     }
 }
