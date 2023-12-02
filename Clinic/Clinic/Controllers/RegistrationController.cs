@@ -41,6 +41,7 @@ namespace Clinic.Controllers
                     {
                         db.Doctors.Add(model.Doctor);
                         db.SaveChanges();
+                        TempData["SuccessMessage"] = "Registration successful!";
                     }
                 }
                 else if (model.SelectedUserType == "Patient") // Process Patient registration
@@ -61,6 +62,7 @@ namespace Clinic.Controllers
                     {
                         db.Patients.Add(model.Patient);
                         db.SaveChanges();
+                        TempData["SuccessMessage"] = "Registration successful!";
                     }
                 }
                 else
@@ -81,6 +83,7 @@ namespace Clinic.Controllers
                     {
                         db.Doctors.Add(model.Doctor);
                         db.SaveChanges();
+                        TempData["SuccessMessage"] = "Registration successful!";
                     }
                 }
             }
